@@ -12,13 +12,9 @@
 ;; No welcome screen
 (setq inhibit-splash-screen t)
 
-;; Default to better frame titles
-(setq frame-title-format
-      (concat "%b - emacs@" (system-name)))
-
 (menu-bar-mode t)
 (scroll-bar-mode t)
-(line-number-mode t)
+(column-number-mode t)
 
 (require 'whitespace)
 (global-whitespace-mode t)
@@ -31,8 +27,6 @@
 (setq diff-switches "-u")
 
 (cua-mode t)
-(ido-mode t)
-
 (global-auto-revert-mode t)
 (recentf-mode t)
 
@@ -42,10 +36,6 @@
 ;; Changes the window configuration with 'C-c left' and 'C-c right'.
 (when (fboundp 'winner-mode)
   (winner-mode))
-
-;; Move point from window to window with Shift and the arrow keys.
-;; (windmove-default-keybindings)
-;; The default keybindings conflict with CUA mode.
 
 ;; Global keybindings
 ;;

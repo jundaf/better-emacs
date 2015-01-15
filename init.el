@@ -30,6 +30,9 @@
                '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
 (require 'better-defaults)
+(require 'bm)
+(require 'browse-kill-ring)
+(require 'smex)
 
 (load "coding")
 (load "defaults")
