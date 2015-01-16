@@ -9,8 +9,11 @@
 
 ;;; Code:
 
-;; this will make sure spaces are used instead of tabs
+;; Make sure spaces are used instead of tabs
 (setq indent-tabs-mode nil)
+
+;; Default to unified diffs
+(setq diff-switches "-u")
 
 (which-function-mode t)
 

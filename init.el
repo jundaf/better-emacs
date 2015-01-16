@@ -29,7 +29,6 @@
   (add-to-list 'package-archives
                '("melpa" . "http://melpa.milkbox.net/packages/") t))
 
-(require 'better-defaults)
 (require 'bm)
 (require 'browse-kill-ring)
 (require 'smex)

@@ -12,23 +12,21 @@
 ;; No welcome screen
 (setq inhibit-splash-screen t)
 
+;; No Chinese char in Org timestamp
+(setq system-time-locale "C")
+
+(require 'better-defaults)
 (menu-bar-mode t)
 (scroll-bar-mode t)
 (column-number-mode t)
 
-(require 'whitespace)
-(global-whitespace-mode t)
-(setq whitespace-style '(face empty tabs trailing lines-tail))
-
-;; No Chinese in Org timestamp
-(setq system-time-locale "C")
-
-;; Default to unified diffs
-(setq diff-switches "-u")
-
 (cua-mode t)
 (global-auto-revert-mode t)
 (recentf-mode t)
+
+(require 'whitespace)
+(global-whitespace-mode t)
+(setq whitespace-style '(face empty tabs trailing lines-tail))
 
 ;; C-x C-j opens dired with the cursor right on the file you're editing
 (require 'dired-x)
