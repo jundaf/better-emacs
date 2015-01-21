@@ -8,24 +8,30 @@
 ;; The customization for the third party modules
 
 ;;; Code:
+(autoload 'ace-jump-mode "ace-jump-mode"
+  "Emacs quick move minor mode" t)
+(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
 
-;; Visible bookmarks keybindings
-(when (featurep 'bm)
-  (global-set-key (kbd "<f2>") 'bm-next)
-  (global-set-key (kbd "<S-f2>") 'bm-previous)
-  (global-set-key (kbd "<C-f2>") 'bm-toggle))
+;; Visible bookmarks
+(require 'bm)
+(global-set-key (kbd "<f2>") 'bm-next)
+(global-set-key (kbd "<S-f2>") 'bm-previous)
+(global-set-key (kbd "<C-f2>") 'bm-toggle)
 
 ;; Make M-y invoke browse-kill-ring
-(when (featurep 'browse-kill-ring)
-  (browse-kill-ring-default-keybindings))
+(require 'browse-kill-ring)
+(browse-kill-ring-default-keybindings)
+
+(require 'smex)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "M-X") 'smex-major-mode-commands)
+
+(require 'undo-tree)
+(global-undo-tree-mode)
 
 (when (featurep 'psvn)
   (setq 'svn-status-hide-unmodified t)
   (global-set-key (kbd "C-c s") 'svn-status))
-
-(when (featurep 'smex)
-  (global-set-key (kbd "M-x") 'smex)
-  (global-set-key (kbd "M-X") 'smex-major-mode-commands))
 
 (when (featurep 'expand-region)
   (global-set-key (kbd "C-=") 'er/expand-region))
