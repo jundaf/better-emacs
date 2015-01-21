@@ -33,4 +33,6 @@
 (load "defaults")
 (load "goodies")
 
+(server-start)
+
 ;;; init.el ends here

@@ -10,7 +10,9 @@
 ;;; Code:
 (autoload 'ace-jump-mode "ace-jump-mode"
   "Emacs quick move minor mode" t)
-(global-set-key (kbd "C-c SPC") 'ace-jump-mode)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "C-c k") 'ace-jump-char-mode)
+(global-set-key (kbd "C-c l") 'ace-jump-line-mode)
 
 ;; Visible bookmarks
 (require 'bm)
@@ -25,21 +27,12 @@
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-c x") 'execute-extended-command)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
 
-(when (featurep 'psvn)
-  (setq 'svn-status-hide-unmodified t)
-  (global-set-key (kbd "C-c s") 'svn-status))
-
 (when (featurep 'expand-region)
   (global-set-key (kbd "C-=") 'er/expand-region))
-
-(when (featurep 'helm)
-  (global-set-key (kbd "C-c h") 'helm-mini)
-  (global-set-key (kbd "C-c i") 'helm-imenu)
-  (global-set-key (kbd "C-c j") 'helm-filtered-bookmarks)
-  (global-set-key (kbd "C-c o") 'helm-occur))
 
 ;;; goodies.el ends here

@@ -37,19 +37,7 @@
 (autoload 'svn-status "psvn"
   "Examine the status of Subversion working copy in directory DIR." t)
 
-;; Lua-mode
-(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
-(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
-(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
-
-;; Vala-mode
-(autoload 'vala-mode "vala-mode" "Major mode for editing Vala code." t)
-(add-to-list 'auto-mode-alist '("\\.vala$" . vala-mode))
-(add-to-list 'auto-mode-alist '("\\.vapi$" . vala-mode))
-(add-to-list 'file-coding-system-alist '("\\.vala$" . utf-8))
-(add-to-list 'file-coding-system-alist '("\\.vapi$" . utf-8))
-
-;; Shell-mode
+;; Shell Mode
 (autoload 'ansi-color-for-comint-mode-on "ansi-color" nil t)
 (add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on t)
 

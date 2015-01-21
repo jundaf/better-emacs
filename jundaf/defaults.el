@@ -17,6 +17,7 @@
 (column-number-mode t)
 
 (cua-mode t)
+(icomplete-mode t)
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
@@ -48,6 +49,7 @@
 ;;
 (global-set-key (kbd "M-<RET>") 'complete-symbol)
 (global-set-key (kbd "C-c C-f") 'recentf-open-files)
+(global-set-key (kbd "C-c SPC") 'set-mark-command)
 (global-set-key (kbd "C-c r") 'remember)
 (global-set-key (kbd "<f8>") 'speedbar-get-focus)
 
