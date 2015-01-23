@@ -55,14 +55,15 @@
 (global-set-key (kbd "<f1> <f3>") 'jump-to-register)
 (global-set-key (kbd "<f1> <f4>") 'point-to-register)
 
-(global-set-key (kbd "<f5> <f4>") 'recentf-open-files)
-(global-set-key (kbd "<f5> <f5>") 'bs-show)
+(global-set-key (kbd "<f5> <f5>") 'recentf-open-files)
 (global-set-key (kbd "<f5> <f6>") 'bookmark-bmenu-list)
 (global-set-key (kbd "<f5> <f7>") 'bookmark-jump)
 (global-set-key (kbd "<f5> <f8>") 'bookmark-set)
 
 (global-set-key (kbd "<f6>") 'set-mark-command)
 (global-set-key (kbd "<f7>") 'view-mode)
+
+(global-set-key (kbd "<C-f5>") 'bs-show)
 (global-set-key (kbd "<C-f7>") 'view-buffer)
 
 (global-set-key (kbd "<f9> <f9>") 'shell)
