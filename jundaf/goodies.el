@@ -16,6 +16,7 @@
 
 ;; Visible bookmarks
 (require 'bm)
+(global-set-key (kbd "<f1> <f2>") 'bm-toggle)
 (global-set-key (kbd "<f2>") 'bm-next)
 (global-set-key (kbd "<S-f2>") 'bm-previous)
 (global-set-key (kbd "<C-f2>") 'bm-toggle)
@@ -27,10 +28,12 @@
 (require 'smex)
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "M-X") 'smex-major-mode-commands)
-(global-set-key (kbd "C-c x") 'execute-extended-command)
+(global-set-key (kbd "<f8>") 'smex)
 
 (require 'undo-tree)
 (global-undo-tree-mode)
+(when (fboundp 'diminish)
+  (diminish 'undo-tree-mode))
 
 (when (featurep 'expand-region)
   (global-set-key (kbd "C-=") 'er/expand-region))

@@ -48,10 +48,29 @@
 ;; Global keybindings
 ;;
 (global-set-key (kbd "M-<RET>") 'complete-symbol)
-(global-set-key (kbd "C-c C-f") 'recentf-open-files)
 (global-set-key (kbd "C-c SPC") 'set-mark-command)
 (global-set-key (kbd "C-c r") 'remember)
-(global-set-key (kbd "<f8>") 'speedbar-get-focus)
+(global-set-key (kbd "C-c z") 'repeat-complex-command)
+
+(global-set-key (kbd "<f1> <f3>") 'jump-to-register)
+(global-set-key (kbd "<f1> <f4>") 'point-to-register)
+
+(global-set-key (kbd "<f5> <f4>") 'recentf-open-files)
+(global-set-key (kbd "<f5> <f5>") 'bs-show)
+(global-set-key (kbd "<f5> <f6>") 'bookmark-bmenu-list)
+(global-set-key (kbd "<f5> <f7>") 'bookmark-jump)
+(global-set-key (kbd "<f5> <f8>") 'bookmark-set)
+
+(global-set-key (kbd "<f6>") 'set-mark-command)
+(global-set-key (kbd "<f7>") 'view-mode)
+(global-set-key (kbd "<C-f7>") 'view-buffer)
+
+(global-set-key (kbd "<f9> <f9>") 'shell)
+(global-set-key (kbd "<f9> <f10>") 'eshell)
+
+;; Window convenience
+(global-set-key (kbd "<f9> 0") 'delete-window)
+(global-set-key (kbd "<f1> 1") 'delete-other-windows)
 
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -79,17 +98,21 @@
                   (interactive "cInsert Register:")
                   (insert-register char 't)))
 
-(global-set-key (kbd "<C-f12>")
-                (lambda (char)
-                  (interactive "cCopy to Register:")
-                  (copy-to-register char (region-beginning) (region-end))
-                  (cua-cancel)))
+(defun jdf-copy-to-register (char)
+  (interactive "cCopy to Register:")
+  (copy-to-register char (region-beginning) (region-end))
+  (cua-cancel))
 
-(global-set-key (kbd "<C-S-f12>")
-                (lambda (char)
-                  (interactive "cCut to Register:")
-                  (copy-to-register char (region-beginning) (region-end))
-                  (cua-delete-region)))
+(global-set-key (kbd "<C-f12>") 'jdf-copy-to-register)
+(global-set-key (kbd "<f9> <f11>") 'jdf-copy-to-register)
+
+(defun jdf-cut-to-register (char)
+  (interactive "cCut to Register:")
+  (copy-to-register char (region-beginning) (region-end))
+  (cua-delete-region))
+
+(global-set-key (kbd "<C-S-f12>") 'jdf-cut-to-register)
+(global-set-key (kbd "<f9> <f12>") 'jdf-cut-to-register)
 
 (setq x-select-enable-clipboard t
       save-interprogram-paste-before-kill t
@@ -101,5 +124,8 @@
 
 (setq backup-directory-alist
       `(("." . ,(concat user-emacs-directory "backups"))))
+
+(setq bookmark-save-flag 1
+      bookmark-default-file (concat user-emacs-directory "bookmarks"))
 
 ;;; defaults.el ends here
